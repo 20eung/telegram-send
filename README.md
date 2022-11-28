@@ -61,7 +61,7 @@ touch telegram-send.sh
 
 그런 다음 이 파일에 스크립트를 추가합니다. 스크립트에서 그룹 ID와 토큰을 설정합니다.
 ```
-#!/bin/bash
+#!/usr/bin/bash
     
 GROUP_ID=<group_id>
 BOT_TOKEN=<bot_token>
@@ -108,17 +108,17 @@ chmod +x telegram-send.sh
 ./telegram-send.sh "Test message"
 ```
 
-모든 곳에서 이 스크립트를 사용하고 대신 telegram-send를 입력하려면 ./telegram-send.sh를 /usr/bin/ 폴더에 추가하십시오.
+모든 곳에서 이 스크립트를 사용하고 대신 telegram-send를 입력하려면 ./telegram-send.sh를 /usr/local/bin/ 폴더에 추가하십시오.
 
 ```
-sudo mv telegram-send.sh /usr/bin/telegram-send
+sudo mv telegram-send.sh /usr/local/bin/telegram-send
 ```
 
-/usr/bin에 있는 모든 파일의 소유자는 루트 사용자입니다.    
+/usr/local/bin에 있는 모든 파일의 소유자는 루트 사용자입니다.    
 스크립트로 동일한 작업을 수행해 보겠습니다.
 
 ```
-sudo chown root:root /usr/bin/telegram-send
+sudo chown root:root /usr/local/bin/telegram-send
 ```
 
 이제 당신은 그것을 테스트 할 수 있습니다.
@@ -140,7 +140,7 @@ touch login-notify.sh
 이 코드를 스크립트에 추가
 
 ```
-#!/bin/bash
+#!/usr/bin/bash
     
 # prepare any message you want
 login_ip="$(echo $SSH_CONNECTION | cut -d " " -f 1)"
