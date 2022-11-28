@@ -85,7 +85,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 #TXT="$DATE%0A$1"
-TXT="$DATE"'\n'"$1"
+TXT="$DATE"$'\n'"$1"
 
 curl -s \
     --data parse_mode=HTML \
