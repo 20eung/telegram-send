@@ -181,8 +181,8 @@ After=docker-mcje.service
 
 [Service]
 RemainAfterExit=yes
-ExecStart=/usr/local/bin/telegram-send "Minecraft Server is Started"
-ExecStop=/usr/local/bin/telegram-send "Minecraft Server is Stopping"
+ExecStart=/usr/local/bin/telegram-send "$HOSTNAME: Server is Started"
+ExecStop=/usr/local/bin/telegram-send "$HOSTNAME: Server is Stopping"
 
 [Install]
 WantedBy=multi-user.target
