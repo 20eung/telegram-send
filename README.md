@@ -177,7 +177,6 @@ touch telegram.service
 ```
 [Unit]
 Description=Send Telegram messagesm$
-After=docker-mcje.service
 
 [Service]
 RemainAfterExit=yes
