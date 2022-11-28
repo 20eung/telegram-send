@@ -84,7 +84,8 @@ if [ "$#" -ne 1 ]; then
     exit 0
 fi
 
-TXT="$DATE%0A$1"
+#TXT="$DATE%0A$1"
+TXT="$DATE"'\n'"$1"
 
 curl -s \
     --data parse_mode=HTML \
@@ -141,17 +142,17 @@ touch login-notify.sh
 
 ```
 #!/usr/bin/bash
-    
+
 # prepare any message you want
 login_ip="$(echo $SSH_CONNECTION | cut -d " " -f 1)"
-login_date="$(date +"%e %b %Y, %a %r")"
+login_date="$(date +"+%Y-%m-%d %H:%M")"
 login_name="$(whoami)"
 
 # For new line I use $'\n' here
-message="New login to server"$'\n'"$login_name"$'\n'"$login_ip"$'\n'"$login_date"
+message="$HOSTNAME"': '"New login to server"$'\nID: '"$login_name"$'\nIP: '"$login_ip"$'\nTime: '"$login_date"
 
 #send it to telegram
-telegram-send "$message"
+/usr/local/bin/telegram-send "$message"
 ```
 
 그런 다음 이 스크립트를 /etc/profile.d/ 폴더로 이동합니다.
